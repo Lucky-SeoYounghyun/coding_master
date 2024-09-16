@@ -1,0 +1,24 @@
+import sys 
+
+def pw(word):
+    result_1 = []
+    
+    for i in range(len(word)):
+        if word[i] == 'c':
+            result_1.append(word[i])
+            break
+        else:
+            result_1.append(word[i])
+           
+    result = ''.join(result_1)
+    
+    result = result.rstrip()
+    
+    return result
+
+
+a = sys.stdin.readline().strip()
+b = sys.stdin.readline().strip()
+
+print(pw(a))
+print(pw(b))
