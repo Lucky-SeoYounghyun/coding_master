@@ -1,0 +1,17 @@
+import sys 
+
+a = int(sys.stdin.readline().strip())
+
+check_lim = list(map(int, input().split()))
+
+check_num = 0
+
+for i in range(a):
+    if check_lim[i] <= 160:
+        print(f"{'I'} {check_lim[i]}")
+        break
+    else:
+        check_num += 1
+        
+if check_num == a:
+    print('P')

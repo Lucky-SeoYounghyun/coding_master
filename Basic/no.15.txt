@@ -1,0 +1,8 @@
+import sys 
+
+question = input()
+
+if question == 'You':
+    print('Me')
+else:
+    print('No')

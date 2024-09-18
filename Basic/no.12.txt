@@ -1,0 +1,29 @@
+import sys 
+
+money = int(sys.stdin.readline()) 
+result = 0
+result += money // 50000
+money = money % 50000
+
+result += money // 10000
+money = money % 10000
+
+result += money // 5000
+money = money % 5000
+
+result += money // 1000
+money = money % 1000
+
+result += money // 500
+money = money % 500
+
+result += money // 100
+money = money % 100
+
+result += money // 50
+money = money % 50
+
+result += money // 10
+
+
+print(result)
