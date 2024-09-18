@@ -1,0 +1,5 @@
+import sys 
+
+number = int(sys.stdin.readline())
+
+print(chr(number))

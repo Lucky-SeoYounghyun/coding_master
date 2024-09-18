@@ -1,0 +1,7 @@
+import sys 
+
+f, m = map(int, input().split())
+
+result = (f + m) // 2
+
+print(result)

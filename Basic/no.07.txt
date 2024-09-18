@@ -1,0 +1,11 @@
+import sys 
+
+a = int(sys.stdin.readline()) 
+if a >= 200:
+    print('A')
+elif a >= 180:
+    print('B')
+elif a >= 150:
+    print('C')
+else:
+    print('D')

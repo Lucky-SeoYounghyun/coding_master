@@ -1,0 +1,16 @@
+import sys 
+
+
+a, b, c = map(int, input().split())
+
+remember = 0
+day = 0
+
+while remember < c:
+    day += 1
+    remember += a
+    if remember >= c:
+        break
+    remember -= b
+    
+print(day)

@@ -1,0 +1,7 @@
+import sys 
+
+a = sys.stdin.readline()
+if len(a) > 20:
+    print('I')
+else:
+    print('P')
