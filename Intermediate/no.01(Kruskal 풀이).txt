@@ -2,34 +2,11 @@ import sys
 input = sys.stdin.read
 data = input().split()
 
-def find(parent, i):
-    if parent[i] == i:
-        return i
-    else:
-        # Path compression
-        parent[i] = find(parent, parent[i])
-        return parent[i]
-
-def union(parent, rank, x, y):
-    rootX = find(parent, x)
-    rootY = find(parent, y)
-    
-    if rootX != rootY:
-        # Union by rank
-        if rank[rootX] > rank[rootY]:
-            parent[rootY] = rootX
-        elif rank[rootX] < rank[rootY]:
-            parent[rootX] = rootY
-        else:
-            parent[rootY] = rootX
-            rank[rootX] += 1
 
 def kruskal(n, edges):
-    # Initialize parent and rank
     parent = list(range(n))
     rank = [0] * n
     
-    # Sort edges by weight
     edges.sort()
     
     mst_cost = 0
@@ -44,12 +21,33 @@ def kruskal(n, edges):
                 break
     
     return mst_cost
+    
+def find(parent, i):
+    if parent[i] == i:
+        return i
+    else:
+        parent[i] = find(parent, parent[i])
+        return parent[i]
+
+def union(parent, rank, x, y):
+    rootX = find(parent, x)
+    rootY = find(parent, y)
+    
+    if rootX != rootY:
+        if rank[rootX] > rank[rootY]:
+            parent[rootY] = rootX
+        elif rank[rootX] < rank[rootY]:
+            parent[rootX] = rootY
+        else:
+            parent[rootY] = rootX
+            rank[rootX] += 1
 
 N = int(data[0])
 M = int(data[1])
 
 edges = []
 index = 2
+
 for _ in range(M):
     a = int(data[index]) - 1
     b = int(data[index + 1]) - 1
@@ -58,3 +56,7 @@ for _ in range(M):
     index += 3
 
 print(kruskal(N, edges))
+
+
+
+// 이번문제같은경우는 크루스칼 알고리즘 최소신장 트리를 이용하여 문제를 풀었습니다.
